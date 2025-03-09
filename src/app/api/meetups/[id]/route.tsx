@@ -6,11 +6,13 @@ import mongoose from "mongoose";
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }
-) {
+
+) {    
+    const {id}=await params;
   try {
     await connectMongoDB();
-    const numId = params.id;
-    const id = new mongoose.Types.ObjectId(numId);
+
+    const newid = new mongoose.Types.ObjectId(id);
     const meetup = await Meetup.findById(id);
     mongoose.connection.close();
 
