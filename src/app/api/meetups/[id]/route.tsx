@@ -5,15 +5,14 @@ import mongoose from "mongoose";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
-
 ) {    
-    const {id}=await params;
   try {
     await connectMongoDB();
-
+    const { pathname } = req.nextUrl;
+    const segments = pathname.split('/');
+    const id = segments[segments.length - 1];
     const newid = new mongoose.Types.ObjectId(id);
-    const meetup = await Meetup.findById(id);
+    const meetup = await Meetup.findById(newid);
     mongoose.connection.close();
 
     if (!meetup) {

@@ -13,7 +13,7 @@ const theme = createTheme({
         text: {
             primary: '#000000',
             secondary:'gray',
-            tertiary: '#ffffff'
+            disabled: '#ffffff'
         },
         action: {
             active: blue[500],
