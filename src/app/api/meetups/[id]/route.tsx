@@ -5,12 +5,11 @@ import mongoose from "mongoose";
 
 export async function GET(
   req: NextRequest,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
   try {
     await connectMongoDB();
-    const params = await context.params;
-    const numId = params.id as string;
+    const numId = params.id;
     const id = new mongoose.Types.ObjectId(numId);
     const meetup = await Meetup.findById(id);
     mongoose.connection.close();
@@ -26,8 +25,8 @@ export async function GET(
       { status: 200 }
     );
   } catch (error: unknown) {
-        mongoose.connection.close();
-    
+    mongoose.connection.close();
+
     if (error instanceof Error) {
       return NextResponse.json(
         { message: "there was an error: " + error.message },
@@ -35,7 +34,7 @@ export async function GET(
       );
     } else {
       return NextResponse.json(
-        { message: "there was an unkown error" },
+        { message: "there was an unknown error" },
         { status: 500 }
       );
     }
