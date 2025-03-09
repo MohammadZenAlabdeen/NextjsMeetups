@@ -52,7 +52,7 @@ const MuiCard = ({ _id,title, location, img }: props) => {
             }}
             onClick={() => {router.push(`/${_id}`)}}
           >
-            <Typography variant="h6" color="text.tertiary">
+            <Typography variant="h6" color="text.disabled">
               See Details
             </Typography>
           </Button>
