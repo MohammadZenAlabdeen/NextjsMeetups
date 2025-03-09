@@ -26,7 +26,7 @@ export default function Home() {
       {meetups.length > 0 ? (
         meetups.map(meetup => (
           <MuiCard
-            _id={meetup._id}
+            _id={meetup._id.toString()}
             key={meetup._id.toString()} 
             title={meetup.title} 
             location={meetup.location} 

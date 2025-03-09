@@ -15,7 +15,7 @@ import { useParams } from "next/navigation";
 import mongoose from "mongoose";
 import axios from "axios";
 interface Meetup {
-  _id: mongoose.Types.ObjectId;
+  _id:string;
   title: string;
   description: string;
   location: string;
@@ -23,11 +23,12 @@ interface Meetup {
 }
 const Page = () => {
   const { id } = useParams();
+  const sentId=id?.toString();
   const theme = useTheme();
   const [meetup, setMeetup] = useState<Meetup>();
   useEffect(() => {
     axios
-      .get(`/api/meetups/${id}`)
+      .get(`/api/meetups/${sentId}`)
       .then((res) => res.data)
       .then((data) => setMeetup(data.data));
   }, []);

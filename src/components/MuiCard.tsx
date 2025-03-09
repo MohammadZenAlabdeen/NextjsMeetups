@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "@mui/material/styles";
 import mongoose from "mongoose";
 interface props {
-  _id:mongoose.Types.ObjectId,
+  _id:string,
   title: string;
   location: string;
   img: string;
