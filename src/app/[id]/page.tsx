@@ -2,17 +2,14 @@
 import React, { useEffect, useState } from "react";
 import {
   Box,
-  Button,
   Card,
   CardContent,
   CardMedia,
-  TextField,
   Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import mongoose from "mongoose";
 import axios from "axios";
 interface Meetup {
   _id:string;
@@ -41,7 +38,7 @@ const Page = () => {
             <Image
               width={500}
               height={280}
-              style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              style={{ objectFit: "cover", width: "100%"}}
               alt={meetup.title}
               src={meetup.img_url}
             ></Image>

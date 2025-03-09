@@ -23,15 +23,15 @@ const MuiCard = ({ _id,title, location, img }: props) => {
   const router = useRouter();
   const theme = useTheme();
   return (
-    <Box sx={{ width: { xs: 250, sm: 350, md: 500 } }}>
+    <Box sx={{ width: { xs: 250, sm: 350, md: 500 } }} paddingBottom={2}>
       <Card>
         <CardMedia>
           <Image
             alt={title}
             width="500"
-            height="140"
+            height="240"
             src={img}
-            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+            style={{ objectFit: "cover", width: "100%" }}
           />
         </CardMedia>
         <CardContent>
